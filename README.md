@@ -1,4 +1,4 @@
-meteor-keyvaluestore
+meteor-keyvaluestore [![Build Status](https://secure.travis-ci.org/gfk-ba/meteor-keyvaluestore.png)](http://travis-ci.org/gfk-ba/meteor-keyvaluestore)
 ====================
 
 Simple setup for a keyvaluestore in meteor
