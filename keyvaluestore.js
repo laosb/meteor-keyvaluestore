@@ -29,6 +29,22 @@ KeyValueStore = (function() {
 
 
     /**
+     * Set a value if value matches condition.
+     * It will override the current value if it already exists for this key.
+     * @param {String} key Key.
+     * @param {Variant} value Value.
+     * @param {Object} condition MongoDB condition for value.
+     */
+    KeyValueStore.prototype.setValueIf = function(key, value, condition) {
+        check(key, String);
+        this._collection.update(
+            { _id: key, value: condition },
+            { $set: { value: value } }
+        );
+    };
+
+
+    /**
      * Get a value.
      * @param {String} key Key.
      * @param {String} [defaultValue=undefined] Default value to return if key is not found in the store.

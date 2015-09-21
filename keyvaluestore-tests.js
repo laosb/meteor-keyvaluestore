@@ -40,6 +40,51 @@ describe('KeyValueStore', function() {
         });
     });
 
+    describe('#setValueIf', function () {
+        describe('When value is not set', function () {
+            it('Should not set the value', function () {
+                var key = 'my_key';
+                var value = 679;
+
+                keyvaluestore.setValueIf(key, value, {$lt: 3});
+
+                var result = keyvaluestore.getValue(key);
+
+                expect(result).to.be.undefined;
+            });
+        });
+
+        describe('When condition does not match', function () {
+            it('Should set the value', function () {
+                var key = 'my_key';
+                var value = 679;
+
+                keyvaluestore.setValue(key, 2);
+
+                keyvaluestore.setValueIf(key, value, {$lt: 3});
+
+                var result = keyvaluestore.getValue(key);
+
+                expect(result).to.equal(value);
+            });
+        });
+
+        describe('When condition matches', function () {
+            it('Should set the value', function () {
+                var key = 'my_key';
+                var value = 679;
+
+                keyvaluestore.setValue(key, 2);
+
+                keyvaluestore.setValueIf(key, value, {$lt: 3});
+
+                var result = keyvaluestore.getValue(key);
+
+                expect(result).to.equal(value);
+            });
+        });
+    });
+
     describe('#getValue', function () {
         it('Should return the value matching the key', function() {
             var key = 'my_key';
