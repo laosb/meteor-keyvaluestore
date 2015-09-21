@@ -42,7 +42,7 @@ describe('KeyValueStore', function() {
 
     describe('#setValueIf', function () {
         describe('When value is not set', function () {
-            it('Should not set the value', function () {
+            it('Should set the value', function () {
                 var key = 'my_key';
                 var value = 679;
 
@@ -50,7 +50,7 @@ describe('KeyValueStore', function() {
 
                 var result = keyvaluestore.getValue(key);
 
-                expect(result).to.be.undefined;
+                expect(result).to.equal(679);
             });
         });
 

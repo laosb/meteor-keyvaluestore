@@ -37,7 +37,7 @@ KeyValueStore = (function() {
      */
     KeyValueStore.prototype.setValueIf = function(key, value, condition) {
         check(key, String);
-        this._collection.update(
+        this._collection.upsert(
             { _id: key, value: condition },
             { $set: { value: value } }
         );
