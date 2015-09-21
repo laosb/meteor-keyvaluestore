@@ -23,6 +23,6 @@ Package.onUse(function(api) {
 /* This defines the tests for the package */
 Package.onTest(function(api) {
     api.use('gfk:keyvaluestore', 'server');
-    api.use(['tinytest', 'spacejamio:munit@2.1.0'], 'server');
+    api.use(['tinytest', 'practicalmeteor:munit'], 'server');
     api.addFiles('keyvaluestore-tests.js', 'server');
 });
