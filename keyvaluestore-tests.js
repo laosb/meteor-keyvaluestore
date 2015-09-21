@@ -55,17 +55,17 @@ describe('KeyValueStore', function() {
         });
 
         describe('When condition does not match', function () {
-            it('Should set the value', function () {
+            it('Should not set the value', function () {
                 var key = 'my_key';
                 var value = 679;
 
-                keyvaluestore.setValue(key, 2);
+                keyvaluestore.setValue(key, 4);
 
                 keyvaluestore.setValueIf(key, value, {$lt: 3});
 
                 var result = keyvaluestore.getValue(key);
 
-                expect(result).to.equal(value);
+                expect(result).to.equal(4);
             });
         });
 

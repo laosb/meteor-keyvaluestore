@@ -37,10 +37,17 @@ KeyValueStore = (function() {
      */
     KeyValueStore.prototype.setValueIf = function(key, value, condition) {
         check(key, String);
-        this._collection.upsert(
-            { _id: key, value: condition },
-            { $set: { value: value } }
-        );
+
+        try {
+            this._collection.upsert(
+                { _id: key, value: condition },
+                { $set: { value: value } }
+            );
+        } catch (error) {
+            if (error.name !== 'MongoError' || error.code !== 11000) {
+                throw error;
+            }
+        }
     };
 
 
