@@ -2,8 +2,8 @@
 Package.describe({
   summary: "Key-value store using a Meteor collection.",
   version: "0.2.0",
-  name: "gfk:keyvaluestore",
-  git: "https://github.com/gfk-ba/meteor-keyvaluestore"
+  name: "laosb:keyvaluestore",
+  git: "https://github.com/laosb/meteor-keyvaluestore"
 });
 
 
