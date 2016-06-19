@@ -1,7 +1,7 @@
 /* Information about this package */
 Package.describe({
   summary: "Key-value store using a Meteor collection.",
-  version: "0.1.6",
+  version: "0.2.0",
   name: "gfk:keyvaluestore",
   git: "https://github.com/gfk-ba/meteor-keyvaluestore"
 });
@@ -15,8 +15,8 @@ Package.onUse(function(api) {
     'underscore',
     'check'
   ], 'server');
-  api.addFiles('keyvaluestore.js', 'server');
-  api.export('KeyValueStore', 'server');
+  api.addFiles('keyvaluestore.js');
+  api.export('KeyValueStore');
 });
 
 
